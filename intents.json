@@ -1,0 +1,75 @@
+{
+  "intents": [
+    {
+      "tag": "salam",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "Halo",
+        "Hai"
+      ],
+      "responses": [
+        "Halo, ada yang bisa kami bantu ? \n 1. Rekomendasi Mobil \n 2. Masalah Mobil \n 3. Metode Pembayaran"
+      ]
+    },
+    {
+      "tag": "rekomendasi",
+      "patterns": ["rekomendasi mobil", "mobil yang direkomendasi",  "rekomendasi mobil yang ada", "rekomen mobil", "1"],
+      "responses": [
+        "Kami Menyediakan mobil \n 1. Mobil Sedan \n  Mobil Sedan cocok untuk penumpang yang kurang dari 4. \n 2. Mobil Jeep \n Mobil Jeep cocok untuk jalan yang off-road \n 3. Mobil SUV \n Mobil SUV memiliki kabin yang lebih luas dari Mobil MPV \n 4. Mobil MPV \n  Mobil MPV cocok untuk penumpang yang lebih dari 4" 
+      ]
+    },
+    {
+      "tag": "sedan",
+      "patterns": ["mobil sedan", "sedan", "list mobil sedan", "1"],
+      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Toyota Camry \n Harga Mulai : Rp 1.750.000 / Full Day \n Untuk Detail Lebih lengkap di list mobil"]
+    },
+    {
+      "tag": "jeep",
+      "patterns": ["mobil jeep", "jeep", "list mobil jeep", "2"],
+      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Jeep Wrangler Rubicon \n Harga Mulai : Rp 3.050.000 / Full Day \n Untuk Detail Lebih lengkap di list mobil"]
+    },
+    {
+      "tag": "suv",
+      "patterns": ["mobil suv", "suv", "list mobil suv", "3"],
+      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Honda BRV \n Harga Mulai : Rp 650.000 / Full Day \n 2. Hyundai Creta \n Harga Mulai : Rp 800.000 / Full Day \n 3. Wuling Almaz RS PRO \n Harga Mulai : Rp 950.000 / Full Day \n Untuk Detail Lebih lengkap di list mobil"]
+    },
+    {
+      "tag": "mpv",
+      "patterns": ["mobil mpv", "mpv", "list mobil mpv", "4"],
+      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Daihatsu Xenia \n Harga Mulai : Rp 500.000 / Full Day \n 2. Toyota Avanza \n Harga Mulai : Rp 550.000 / Full Day \n 3. Toyota Veloz \n Harga Mulai : Rp 650.000 / Full Day \n 4. Ertiga Hybrid \n Harga Mulai : Rp 650.000 \n 5. Hyundai Stargazer \n Harga Mulai : Rp 600.000 / Full Day \n Untuk Detail Lebih lengkap di list mobil"]
+    },
+    {
+      "tag": "masalah",
+      "patterns": [
+        "mobil yang disewa bermasalah", "mobil bermasalah", "masalah dengan mobil", "mobil masalah", "masalah mobil", "hubungi", "minta kontak", "kontak", "2"
+      ],
+      "responses": [
+        "Mohon maaf menganggu kenyamanannya, Anda Dapat Hubungi Kontak Berikut dan Serta Berikan Keluhan Lebih Lanjut Mengenai Masalah. \n Whatsapp : 082293788829 \n Customer Support Atas Nama Franky"
+      ]
+    },
+    {
+      "tag": "pembayaran",
+      "patterns": [
+        "pembayaran lewat",
+        "pembayaran",
+        "metode pembayaran",
+        "3"
+      ],
+      "responses": [
+        "Pembayaran dapat dilakukan ketika sudah ingin melakukan sewa mobil. Metode pembayaran tersedia mulai dari BCA, BNI, Mandiri, BRI, Dana, Ovo dan Jenius. Kami juga dapat menerima Cash On Delivery (COD). Proses akan dilakukan 1 hari kerja."
+      ]
+    },
+    {
+      "tag": "penutup",
+      "patterns": [
+        "terima kasih",
+        "thanks",
+        "tq"
+      ],
+      "responses": [
+        "Senang bisa membantu anda! :)"
+      ]
+    }
+  ]
+}

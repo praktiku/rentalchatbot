@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot Jasa Rental Mobil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' ,filename='assets/css/style.css') }}">
+</head>
+
+<body>
+    <section>
+        <div class="container py-3">
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-8 col-lg-6 col-xl-4">
+
+                    <div class="card" id="chat1" style="border-radius: 15px;">
+                        <div class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0"
+                            style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                            <p class="mb-0 fw-bold">Customer Service</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="message-chat">
+                                <div class="d-flex flex-row justify-content-start mb-4">
+                                    <img src="{{ url_for('static', filename='assets/image/user.png') }}" alt="avatar 1"
+                                        style="width: 45px; height: 100%;">
+                                    <div class="p-3 ms-3 border rounded from-bot">
+                                        <p class="small mb-0">Selamat datang di jasa rental mobil, Silahkan ketik pertanyaan anda. Menggunakan kata bukan angka</p>
+                                    </div>
+                                </div>
+
+                                <!-- User Send Mesage -->
+                                <!-- <div class="d-flex flex-row justify-content-end mb-4">
+                                    <div class="p-3 me-3 border rounded">
+                                        <p class="small mb-0">Hello and thank you for visiting MDBootstrap. Please click
+                                            the video below.</p>
+                                    </div>
+                                    <img src="{{ url_for('static', filename='assets/image/user_msg.jpg') }}" alt="avatar 1"
+                                        style="width: 45px; height: 100%;">
+                                </div> -->
+                                <!-- User Send Mesage -->
+                            </div>
+                            <div class="typing_effect" style="display: none">
+                                <!-- Typing Chat Animation -->
+                                <div class="d-flex flex-row justify-content-start mb-4">
+                                    <img src="{{ url_for('static', filename='assets/image/user.png') }}" alt="avatar 1"
+                                        style="width: 45px; height: 100%;">
+                                    <div class="p-3 ms-3 border rounded from-bot">
+                                        <div class="typing">
+                                            <div class="dot"></div>
+                                            <div class="dot"></div>
+                                            <div class="dot"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- End Typing Chat Animation -->
+                            </div>
+                            <form action="javascript:void(0)">
+                                <div class="form-outline">
+                                    <div class="input-group mb-3">
+                                        <input type="text" name="message" class="form-control" placeholder="Typing..."
+                                            aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <input class="btn btn-primary btn_send" type="submit" id="button-addon2" value="Send"></input>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='/assets/js/jquery-3.6.1.min.js') }}"></script>
+</body>
+<script>
+    $(document).ready(function(){
+        $('.btn_send').click(function (){
+            let message = $('input[name="message"]').val()
+            let message_chat = $('.message-chat')
+
+            message_chat.append(
+                    `<div class="d-flex flex-row justify-content-end mb-4">
+                        <div class="p-3 me-3 border rounded">
+                            <p class="small mb-0">${message}</p>
+                        </div>
+                        <img src="{{ url_for('static', filename='assets/image/user_msg.jpg') }}" alt="avatar 1"
+                            style="width: 45px; height: 100%;">
+                    </div>`
+            )
+            $('input[name="message"]').val("")
+            $('.typing_effect').show()
+
+            setTimeout(() => {
+                $.ajax({
+                    type: "POST",
+                    url: "/sendmsg",
+                    crossDomain: true,
+                    headers: {
+                        "Content-Type" : "application/json"
+                    },
+                    data: JSON.stringify({'message': (message)}),
+                    success: function(response){
+                        $('.typing_effect').hide()
+                        let msg_preview = response.answer.replace(/\n/g,"<br>");
+                        message_chat.append(
+                            `<div class="d-flex flex-row justify-content-start mb-4">
+                                <img src="{{ url_for('static', filename='assets/image/user.png') }}" alt="avatar 1"
+                                    style="width: 45px; height: 100%;">
+                                <div class="p-3 ms-3 border rounded from-bot">
+                                    <p class="small mb-0">${msg_preview}</p>
+                                </div>
+                            </div>`
+                        )
+                        console.log(response)
+                    }
+                })
+
+            }, 500);
+            
+        })
+    })
+</script>
+</html>
