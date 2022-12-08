@@ -46,4 +46,4 @@ def chatbot(sentence):
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
     else:
-        return str("Kata-kata anda sulit di mengeri. Silahkan Ketik lagi")
+        return str("Kata-kata anda sulit di mengerti. Silahkan Ketik lagi")
