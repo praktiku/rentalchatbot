@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from chat import chatbot
+import nltk
+nltk.download('punkt')
 
 app = Flask(__name__)
 
