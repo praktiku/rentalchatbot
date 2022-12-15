@@ -16,28 +16,28 @@
       "tag": "rekomendasi",
       "patterns": ["rekomendasi mobil", "mobil yang direkomendasi",  "rekomendasi mobil yang ada", "rekomen mobil", "1"],
       "responses": [
-        "Kami Menyediakan mobil \n 1. Mobil Sedan \n  Mobil Sedan cocok untuk penumpang yang kurang dari 4. \n 2. Mobil Jeep \n Mobil Jeep cocok untuk jalan yang off-road \n 3. Mobil SUV \n Mobil SUV memiliki kabin yang lebih luas dari Mobil MPV \n 4. Mobil MPV \n  Mobil MPV cocok untuk penumpang yang lebih dari 4" 
+        "Kami Menyediakan mobil \n 1. Mobil Sedan \n  Mobil Sedan cocok untuk penumpang yang kurang dari 4. \n 2. Mobil Hatchback \n Mobil Hatchback cocok untuk jalan kota \n 3. Mobil SUV \n Mobil SUV memiliki kabin yang lebih luas dari Mobil MPV \n 4. Mobil MPV \n  Mobil MPV cocok untuk penumpang yang lebih dari 4" 
       ]
     },
     {
       "tag": "sedan",
       "patterns": ["mobil sedan", "sedan", "list mobil sedan", "1"],
-      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Toyota Camry \n Harga Mulai : Rp 1.750.000 / Full Day \n Untuk Detail Lebih lengkap di list mobil"]
+      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Toyota New Vios \n Harga Mulai : Rp 1,100,000/ Full Day\n 2. Mitsubishi Lancer Evolution \n Harga Mulai : Rp 200,000/ Full Day\n 3. BMW 7 \n Harga Mulai : Rp 400,000/ Full Day\n 4. Acura TL \n Harga Mulai : Rp 1,000,000/ Full Day\n 5. Hyundai Sonata Sport \n Harga Mulai : Rp 1,500,000/ Full Day\n 6. Chevrolet Cruze \n Harga Mulai : Rp 1,000,000/ Full Day\n 7. Honda CIVIC SI \n Harga Mulai : Rp 200,000/ Full Day\n 8. Toyota Corolla Altis \n Harga Mulai : Rp 500,000/ Full Day \n Untuk Detail Lebih lengkap di list mobil"]
     },
     {
-      "tag": "jeep",
-      "patterns": ["mobil jeep", "jeep", "list mobil jeep", "2"],
-      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Jeep Wrangler Rubicon \n Harga Mulai : Rp 3.050.000 / Full Day \n Untuk Detail Lebih lengkap di list mobil"]
+      "tag": "hatchback",
+      "patterns": ["mobil hatchback", "hatchback", "list mobil hatchback", "hc" , "2"],
+      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Honda Civic Turbo \n Harga Mulai : Rp 800,000/ Full Day\n 2. Toyota Yaris \n Harga Mulai : Rp 1,500,000/ Full Day\n 3. Honda City \n Harga Mulai : Rp 600,000/ Full Day\n 4. Nissan March \n Harga Mulai : Rp 1,100,000/ Full Day\n 5. Honda Brio \n Harga Mulai : Rp 1,100,000/ Full Day\n 6. Suzuki SX4 S-Cross \n Harga Mulai : Rp 500,000/ Full Day\n 7. Honda Jazz \n Harga Mulai : Rp 800,000/ Full Day\n 8. Suzuki Baleno \n Harga Mulai : Rp 1,500,000/ Full Day\n 9. Daihatsu Sirion \n Harga Mulai : Rp 1,400,000/ Full Day\n 10. Toyota Agya \n Harga Mulai : Rp 1,100,000/ Full Day \n Untuk Detail Lebih lengkap di list mobil"]
     },
     {
       "tag": "suv",
       "patterns": ["mobil suv", "suv", "list mobil suv", "3"],
-      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Honda BRV \n Harga Mulai : Rp 650.000 / Full Day \n 2. Hyundai Creta \n Harga Mulai : Rp 800.000 / Full Day \n 3. Wuling Almaz RS PRO \n Harga Mulai : Rp 950.000 / Full Day \n Untuk Detail Lebih lengkap di list mobil"]
+      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Wuling Almaz \n Harga Mulai : Rp 1,400,000/ Full Day\n 2. Daihatsu Terios \n Harga Mulai : Rp 700,000/ Full Day\n 3. Hyundai Tucson \n Harga Mulai : Rp 1,400,000/ Full Day\n 4. Nissan Maggnite \n Harga Mulai : Rp 1,100,000/ Full Day\n 5. Suzuki XL7 \n Harga Mulai : Rp 700,000/ Full Day\n 6. Audi Q7 \n Harga Mulai : Rp 1,000,000/ Full Day\n 7. MG ZS \n Harga Mulai : Rp 1,200,000/ Full Day\n 8. Mercedes Benz G Class \n Harga Mulai : Rp 500,000/ Full Day\n 9. Range Rover \n Harga Mulai : Rp 900,000/ Full Day\n 10. Toyota Rush \n Harga Mulai : Rp 600,000/ Full Day \n Untuk Detail Lebih lengkap di list mobil"]
     },
     {
       "tag": "mpv",
       "patterns": ["mobil mpv", "mpv", "list mobil mpv", "4"],
-      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Daihatsu Xenia \n Harga Mulai : Rp 500.000 / Full Day \n 2. Toyota Avanza \n Harga Mulai : Rp 550.000 / Full Day \n 3. Toyota Veloz \n Harga Mulai : Rp 650.000 / Full Day \n 4. Ertiga Hybrid \n Harga Mulai : Rp 650.000 \n 5. Hyundai Stargazer \n Harga Mulai : Rp 600.000 / Full Day \n Untuk Detail Lebih lengkap di list mobil"]
+      "responses": ["Untuk Saat Ini Hanya ada mobil \n 1. Mitsubishi Xpander \n Harga Mulai : Rp 1,500,000/ Full Day\n 2. Toyota Alphard \n Harga Mulai : Rp 1,500,000/ Full Day\n 3. Toyota Avanza \n Harga Mulai : Rp 1,100,000/ Full Day\n 4. Suzuki Ertiga \n Harga Mulai : Rp 1,400,000/ Full Day\n 5. Toyota Avanza \n Harga Mulai : Rp 1,300,000/ Full Day\n 6. Mazda3 \n Harga Mulai : Rp 1,100,000/ Full Day\n 7. Wuling Formo S \n Harga Mulai : Rp 1,300,000/ Full Day\n 8. Daihatsu Sigra \n Harga Mulai : Rp 1,200,000/ Full Day\n 9. Toyota Avanza Veloz \n Harga Mulai : Rp 1,500,000/ Full Day\n 10. Daihatsu Xenia \n Harga Mulai : Rp 1,200,000/ Full Day \n Untuk Detail Lebih lengkap di list mobil"]
     },
     {
       "tag": "masalah",

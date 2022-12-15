@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Jasa Rental Mobil</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
@@ -62,6 +62,7 @@
                                         <input type="text" name="message" class="form-control" placeholder="Typing..."
                                             aria-label="Recipient's username" aria-describedby="button-addon2">
                                         <input class="btn btn-primary btn_send" type="submit" id="button-addon2" value="Send"></input>
+                                        <input class="btn btn-danger btn_record" type="button" value="Record" />
                                     </div>
                                 </div>
                             </form>
@@ -80,6 +81,8 @@
 </body>
 <script>
     $(document).ready(function(){
+        var isClick = true;
+        var recordText;
         $('.btn_send').click(function (){
             let message = $('input[name="message"]').val()
             let message_chat = $('.message-chat')
@@ -96,6 +99,96 @@
             $('input[name="message"]').val("")
             $('.typing_effect').show()
 
+            setTimeout(() => {
+                $.ajax({
+                    type: "POST",
+                    url: "/sendmsg",
+                    crossDomain: true,
+                    headers: {
+                        "Content-Type" : "application/json"
+                    },
+                    data: JSON.stringify({'message': (message)}),
+                    success: function(response){
+                        $('.typing_effect').hide()
+                        let msg_preview = response.answer.replace(/\n/g,"<br>");
+                        message_chat.append(
+                            `<div class="d-flex flex-row justify-content-start mb-4">
+                                <img src="{{ url_for('static', filename='assets/image/user.png') }}" alt="avatar 1"
+                                    style="width: 45px; height: 100%;">
+                                <div class="p-3 ms-3 border rounded from-bot">
+                                    <p class="small mb-0">${msg_preview}</p>
+                                </div>
+                            </div>`
+                        )
+                        console.log(response)
+                    }
+                })
+
+            }, 500);
+            
+        })
+        const onFunClick = () => {
+            if(!isClick){
+                $('.btn_send').attr('disabled', true);
+                $('input[name="message"]').attr('disabled', true);
+                $('.btn_record').val('Listening...')
+                setTimeout(() => {
+                    $('.btn_record').val('Stop')
+                }, 5000);
+            }else{
+                
+                $('.btn_send').attr('disabled', false);
+                $('input[name="message"]').attr('disabled', false);
+                $('.btn_record').val('Record');
+            }
+            
+        }
+        $('.btn_record').click(function (){
+            isClick = !isClick;
+
+            var recognition = new webkitSpeechRecognition();
+
+            recognition.lang = "id-ID";
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.maxAlternatives = 1;
+
+            
+            recognition.start();
+            onFunClick();
+            if(!isClick){
+                return recognition.stop();
+            }
+            recognition.onresult = function(event) {
+                // Get the recognized text from the event object
+                recognition.stop();
+
+                $('.btn_record').val('Record');
+                $('.btn_send').attr();
+                $('input[name="message"]').attr();
+
+                recordText = event.results[0][0].transcript;
+            }
+
+
+            let message = recordText
+            let message_chat = $('.message-chat')
+            if(!message){
+                return alert("Maaf, Silahkan Ulangi lagi")
+            }
+
+            message_chat.append(
+                    `<div class="d-flex flex-row justify-content-end mb-4">
+                        <div class="p-3 me-3 border rounded">
+                            <p class="small mb-0">${message}</p>
+                        </div>
+                        <img src="{{ url_for('static', filename='assets/image/user_msg.jpg') }}" alt="avatar 1"
+                            style="width: 45px; height: 100%;">
+                    </div>`
+            )
+            
+            $('.typing_effect').show()
+           
             setTimeout(() => {
                 $.ajax({
                     type: "POST",
