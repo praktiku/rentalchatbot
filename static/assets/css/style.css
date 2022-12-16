@@ -52,16 +52,16 @@
 }
 
 form {
-    
     position: fixed;
-    bottom: 0;
-    input{
-        margin-top: 10px;
+    bottom: 35px;
+    .form-control{
         height: 100%;
     }
 }
 .message-chat {
     /* max-height: 80vh; */
+    margin-bottom: 40px;
+    /* padding-bottom: 5px; */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
