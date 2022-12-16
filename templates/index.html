@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot Jasa Rental Mobil</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/bootstrap.min.css') }}">
@@ -143,9 +143,6 @@
                 $('.btn_send').attr('disabled', true);
                 $('input[name="message"]').attr('disabled', true);
                 $('.btn_record').val('Listening...')
-                setTimeout(() => {
-                    $('.btn_record').val('Stop')
-                }, 5000);
             }else{
                 
                 $('.btn_send').attr('disabled', false);
@@ -167,26 +164,24 @@
             
             recognition.start();
             onFunClick();
-            if(!isClick){
-                return recognition.stop();
+            recognition.onresult = (event) => {
+                recognition.stop
+                speechToText = event.results[event.results.length - 1][0].transcript.trim();
+                recordText = speechToText
+                console.log(speechToText)
+                sendToChat()
+                isClick = true
+                if(recordText == '')
+                {
+                    return alert('Maaf, Suara Tidak Terdengar Jelas Silahkan Ulangi lagi!')
+                }
+                onFunClick()
+                console.log(isClick)
             }
-            recognition.onresult = function(event) {
-                // Get the recognized text from the event object
-                recognition.stop();
-
-                $('.btn_record').val('Record');
-                $('.btn_send').attr();
-                $('input[name="message"]').attr();
-
-                recordText = event.results[0][0].transcript;
-            }
-
-
-            let message = recordText
+            
+            function sendToChat() {
+                let message = recordText
             let message_chat = $('.message-chat')
-            if(!message){
-                return alert("Maaf, Silahkan Ulangi lagi")
-            }
 
             message_chat.append(
                     `<div class="d-flex flex-row justify-content-end mb-4">
@@ -200,7 +195,7 @@
             
             $('.typing_effect').show()
            
-            setTimeout(() => {
+            // setTimeout(() => {
                 $.ajax({
                     type: "POST",
                     url: "/sendmsg",
@@ -225,7 +220,8 @@
                     }
                 })
 
-            }, 500);
+            // }, 500);
+            }
             
         })
     })

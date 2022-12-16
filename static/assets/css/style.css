@@ -53,14 +53,14 @@
 
 form {
     position: fixed;
-    bottom: 35px;
+    bottom: 25px;
     .form-control{
         height: 100%;
     }
 }
 .message-chat {
     /* max-height: 80vh; */
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     /* padding-bottom: 5px; */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
