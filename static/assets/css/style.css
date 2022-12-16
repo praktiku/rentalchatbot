@@ -50,3 +50,18 @@
         background-color: #B5D9CB; //rgba(20,105,69,.2);
     }
 }
+
+form {
+    
+    position: fixed;
+    bottom: 0;
+    input{
+        margin-top: 10px;
+        height: 100%;
+    }
+}
+.message-chat {
+    /* max-height: 80vh; */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}

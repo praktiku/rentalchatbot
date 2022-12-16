@@ -96,8 +96,13 @@
                             style="width: 45px; height: 100%;">
                     </div>`
             )
+            
             $('input[name="message"]').val("")
             $('.typing_effect').show()
+            $("html, body").animate({
+                scrollTop: $(
+                'html, body').get(0).scrollHeight
+            }, 100);
 
             setTimeout(() => {
                 $.ajax({
@@ -120,11 +125,16 @@
                                 </div>
                             </div>`
                         )
+                        $("html, body").animate({
+                            scrollTop: $(
+                            'html, body').get(0).scrollHeight
+                        }, 100);
                         console.log(response)
                     }
                 })
 
             }, 500);
+            
             
         })
         const onFunClick = () => {
